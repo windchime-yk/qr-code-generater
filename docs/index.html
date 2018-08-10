@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>QR Code Generate</title>
+  <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+<body>
+  <header class="header" role="banner">
+    <h1 class="header__head">QRコード生成</h1>
+  </header>
+
+  <main class="main" role="main">
+    <div id="eventArea" class="form">
+      <input id="inputUrl" class="form__url" type="url" name="url" placeholder="ここにURLを入力">
+      <input id="generateBtn" class="form__btn btn" type="button" value="QRコード生成">
+    </div>
+    <div class="drawArea">
+      <p>ここにQRが表示されます</p>
+      <canvas id="qrdraw" class="canvas"></canvas>
+    </div>
+    <a id="saveBtn" class="form__btn" href="#" download="qr.png">Download</a>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <small class="copyright">&copy; WindChimeYK</small>
+  </footer>
+
+  <script src="./assets/js/main.js"></script>
+</body>
+</html>
