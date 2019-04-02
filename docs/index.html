@@ -13,21 +13,25 @@
   </header>
 
   <main class="main" role="main">
-    <div id="eventArea" class="form">
-      <input id="inputUrl" class="form__url" type="url" name="url" placeholder="ここにURLを入力">
-      <input id="generateBtn" class="form__btn btn" type="button" value="QRコード生成">
+    <div id="app">
+      <div id="eventArea" class="form">
+        <input id="inputUrl" class="form__url" type="url" name="url" placeholder="URL指定" v-model="url">
+        <input id="inputSize" class="form__size" type="number" name="size" placeholder="画像サイズ指定" v-model="size">
+      </div>
+      <div class="drawArea">
+        <p>ここにQRが表示されます</p>
+        <img src="http://chart.apis.google.com/chart?cht=qr&chs={{ size }}x{{ size }}&chl={{ url }}" alt="">
+      </div>
+      <a id="saveBtn" class="form__btn" href="#" download="qr.png">Download</a>
     </div>
-    <div class="drawArea">
-      <p>ここにQRが表示されます</p>
-      <canvas id="qrdraw" class="canvas"></canvas>
-    </div>
-    <a id="saveBtn" class="form__btn" href="#" download="qr.png">Download</a>
   </main>
 
   <footer class="footer" role="contentinfo">
-    <small class="copyright">&copy; WindChimeYK</small>
+    <small class="copyright">&copy; WhyK</small>
   </footer>
 
-  <script src="./assets/js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.common.js"></script>
+  <script src="../src/js/entrypoint.js"></script>
 </body>
 </html>
