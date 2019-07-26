@@ -37,13 +37,17 @@ input {
   border-bottom: 1px solid #000;
 }
 .form__btn {
-  display: inline-block;
+  display: block;
+  width: 90px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 10px;
+  text-align: center;
   font-size: 1.5rem;
   font-weight: 300;
   text-decoration: none;
   color: #fff;
   background-color: #999;
-  padding: 10px;
   border-radius: 3px;
 }
 .drawArea {
