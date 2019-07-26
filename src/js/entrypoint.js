@@ -1,7 +1,7 @@
-const vue = new vue({
+const vue = new Vue({
   el: '#app',
   data: {
     url: '',
-    size: 500
+    size: 0
   }
 });
