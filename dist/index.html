@@ -4,8 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>QR Code Generate</title>
+  <meta name="description" content="QRコード生成ができます">
+  <title>QRコード生成</title>
   <link rel="stylesheet" href="./assets/css/main.css">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@windchime_yk">
+  <meta property="og:url" content="https://qr-generate.whyk.dev">
+  <meta property="og:title" content="QRコード生成">
+  <meta property="og:description" content="QRコード生成ができます">
 </head>
 <body>
   <header class="header" role="banner">
@@ -22,7 +28,6 @@
         <p>ここにQRが表示されます</p>
         <img :src="'http://chart.apis.google.com/chart?cht=qr&chs=' + size + 'x' + size + '&chl=' + url" alt="">
       </div>
-      <a id="saveBtn" class="form__btn" href="#" download="qr.png">Download</a>
     </div>
   </main>
 
@@ -31,7 +36,6 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.common.js"></script>
-  <script src="../src/js/entrypoint.js"></script>
+  <script src="./assets/js/main.js"></script>
 </body>
 </html>
