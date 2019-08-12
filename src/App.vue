@@ -2,12 +2,12 @@
   <div id="app">
     <site-header></site-header>
     <div id="eventArea" class="form">
-      <input id="inputUrl" class="form__url" type="url" name="url" placeholder="URL指定" v-model="url">
-      <input id="inputSize" class="form__size" type="number" name="size" placeholder="画像サイズ指定" v-model="size">
+      <input id="inputUrl" class="form__url" type="url" name="url" placeholder="ex. https://qr-generate.whyk.dev/" v-model="url">
+      <input id="inputSize" class="form__size" type="number" name="size" placeholder="ex. 100" v-model="size">
     </div>
     <div class="drawArea">
       <p>ここにQRが表示されます</p>
-      <img :src="'http://chart.apis.google.com/chart?cht=qr&chs=' + size + 'x' + size + '&chl=' + url" alt="">
+      <img :src="`http://chart.apis.google.com/chart?cht=qr&chs=${size || 100}x${size || 100}&chl=${url || 'https://qr-generate.whyk.dev/'}`" alt="">
     </div>
     <site-footer></site-footer>
   </div>
@@ -22,7 +22,7 @@ export default {
   data() {
     return {
       url: '',
-      size: 0
+      size: null
     }
   },
   components: {
@@ -64,10 +64,14 @@ export default {
     text-align: center;
   }
   .form__url {
+    width: 250px;
     margin-right: 10px;
     padding: 10px;
     font-size: 1.5rem;
     border-bottom: 1px solid #000;
+  }
+  .form__size {
+    width: 80px;
   }
   .drawArea {
     margin: 30px 0 10px;
