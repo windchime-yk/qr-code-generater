@@ -18,7 +18,7 @@
     </div>
     <div class="drawArea">
       <p>ここにQRが表示されます</p>
-      <img :src="`http://api.qrserver.com/v1/create-qr-code/?data=${url || 'https://qr-generate.whyk.dev/'}&size=${size || 100}x${size || 100}`" :alt="`${url}のQRコード`">
+      <img class="drawArea__code" :src="`http://api.qrserver.com/v1/create-qr-code/?data=${url || 'https://qr-generate.whyk.dev/'}&size=${size || 100}x${size || 100}`" :alt="`${url}のQRコード`">
     </div>
     <site-footer></site-footer>
   </div>
@@ -95,7 +95,9 @@ export default {
     padding-left: 2em;
   }
   .form {
-    text-align: center;
+    /* text-align: center; */
+    display: flex;
+    justify-content: center;
   }
   .form__url {
     width: 250px;
@@ -106,6 +108,8 @@ export default {
   }
   .form__size {
     width: 80px;
+    padding: 10px;
+    border-bottom: 1px solid #000;
   }
   .drawArea {
     margin: 30px 0 10px;
@@ -120,8 +124,20 @@ export default {
     display: block;
     text-align: center;
   }
+
+  @media screen and (max-width: 425px) {
     .usage {
       width: 80%;
       /* padding: 10px; */
     }
+    .form {
+      flex-direction: column;
+      margin-right: 10%;
+      margin-left: 10%;
+    }
+    .drawArea__code {
+      max-width: 200px;
+      width: 100%;
+    }
+  }
 </style>
