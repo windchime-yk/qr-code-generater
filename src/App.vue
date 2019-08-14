@@ -1,6 +1,17 @@
 <template>
   <div id="app">
     <site-header></site-header>
+    <details class="usage">
+      <summary class="usage__title">使い方</summary>
+      <div class="usage__content">
+        <ol>
+          <li>URLの入力欄にお好みのURLを入力してください</li>
+          <li>数字の入力欄にQRコードの希望サイズを入力してください（50～1000まで可能）</li>
+          <li>表示されたQRコードを端末で保存してください</li>
+        </ol>
+        <p class="usage__notice">※QRコードはモバイルでは表示上200pxで固定されていますが、サイズはちゃんと変更されています</p>
+      </div>
+    </details>
     <div id="eventArea" class="form">
       <input id="inputUrl" class="form__url" type="url" name="url" placeholder="ex. https://qr-generate.whyk.dev/" v-model="url">
       <input id="inputSize" class="form__size" type="number" name="size" placeholder="ex. 100" v-model="size">
@@ -60,6 +71,29 @@ export default {
   .header__head {
     text-align: center;
   }
+  .usage {
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    border: 1px solid #000;
+    border-radius: 5px;
+  }
+  .usage__title {
+    padding: 10px 20px;
+  }
+  .usage[open] .usage__title {
+    border-bottom: 1px solid #000;
+  }
+  .usage__content {
+    padding: 10px;
+  }
+  .usage__notice {
+    color: #f00;
+    text-indent: -1em;
+    padding-left: 2em;
+  }
   .form {
     text-align: center;
   }
@@ -86,4 +120,8 @@ export default {
     display: block;
     text-align: center;
   }
+    .usage {
+      width: 80%;
+      /* padding: 10px; */
+    }
 </style>
