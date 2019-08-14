@@ -18,7 +18,7 @@
     </div>
     <div class="drawArea">
       <p>ここにQRが表示されます</p>
-      <img :src="`http://chart.apis.google.com/chart?cht=qr&chs=${size || 100}x${size || 100}&chl=${url || 'https://qr-generate.whyk.dev/'}`" alt="">
+      <img :src="`http://api.qrserver.com/v1/create-qr-code/?data=${url || 'https://qr-generate.whyk.dev/'}&size=${size || 100}x${size || 100}`" :alt="`${url}のQRコード`">
     </div>
     <site-footer></site-footer>
   </div>
