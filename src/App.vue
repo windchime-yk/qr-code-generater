@@ -1,13 +1,24 @@
 <template>
   <div id="app">
     <site-header></site-header>
+    <details class="usage">
+      <summary class="usage__title">使い方</summary>
+      <div class="usage__content">
+        <ol>
+          <li>URLの入力欄にお好みのURLを入力してください</li>
+          <li>数字の入力欄にQRコードの希望サイズを入力してください（50～1000まで可能）</li>
+          <li>表示されたQRコードを端末で保存してください</li>
+        </ol>
+        <p class="usage__notice">※QRコードはモバイルでは表示上200pxで固定されていますが、サイズはちゃんと変更されています</p>
+      </div>
+    </details>
     <div id="eventArea" class="form">
-      <input id="inputUrl" class="form__url" type="url" name="url" placeholder="URL指定" v-model="url">
-      <input id="inputSize" class="form__size" type="number" name="size" placeholder="画像サイズ指定" v-model="size">
+      <input id="inputUrl" class="form__url" type="url" name="url" placeholder="ex. https://qr-generate.whyk.dev/" v-model="url">
+      <input id="inputSize" class="form__size" type="number" name="size" placeholder="ex. 100" v-model="size">
     </div>
     <div class="drawArea">
       <p>ここにQRが表示されます</p>
-      <img :src="'http://chart.apis.google.com/chart?cht=qr&chs=' + size + 'x' + size + '&chl=' + url" alt="">
+      <img class="drawArea__code" :src="`http://api.qrserver.com/v1/create-qr-code/?data=${url || 'https://qr-generate.whyk.dev/'}&size=${size || 100}x${size || 100}`" :alt="`${url}のQRコード`">
     </div>
     <site-footer></site-footer>
   </div>
@@ -22,7 +33,7 @@ export default {
   data() {
     return {
       url: '',
-      size: 0
+      size: null
     }
   },
   components: {
@@ -60,13 +71,44 @@ export default {
   .header__head {
     text-align: center;
   }
+  .usage {
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    border: 1px solid #000;
+    border-radius: 5px;
+  }
+  .usage__title {
+    padding: 10px 20px;
+  }
+  .usage[open] .usage__title {
+    border-bottom: 1px solid #000;
+  }
+  .usage__content {
+    padding: 10px;
+  }
+  .usage__notice {
+    color: #f00;
+    text-indent: -1em;
+    padding-left: 2em;
+  }
   .form {
-    text-align: center;
+    /* text-align: center; */
+    display: flex;
+    justify-content: center;
   }
   .form__url {
+    width: 250px;
     margin-right: 10px;
     padding: 10px;
     font-size: 1.5rem;
+    border-bottom: 1px solid #000;
+  }
+  .form__size {
+    width: 80px;
+    padding: 10px;
     border-bottom: 1px solid #000;
   }
   .drawArea {
@@ -81,5 +123,21 @@ export default {
   .copyright {
     display: block;
     text-align: center;
+  }
+
+  @media screen and (max-width: 425px) {
+    .usage {
+      width: 80%;
+      /* padding: 10px; */
+    }
+    .form {
+      flex-direction: column;
+      margin-right: 10%;
+      margin-left: 10%;
+    }
+    .drawArea__code {
+      max-width: 200px;
+      width: 100%;
+    }
   }
 </style>
