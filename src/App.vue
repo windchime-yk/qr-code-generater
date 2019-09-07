@@ -7,6 +7,7 @@
         <ol>
           <li>URLの入力欄にお好みのURLを入力してください</li>
           <li>数字の入力欄にQRコードの希望サイズを入力してください（50～1000まで可能）</li>
+          <li>お好みで背景とQRコード本体の色を変更してください（未設定ならデフォルトが適用されます）</li>
           <li>表示されたQRコードを端末で保存してください</li>
         </ol>
         <p class="usage__notice">※QRコードはモバイルでは表示上200pxで固定されていますが、サイズはちゃんと変更されています</p>
@@ -15,10 +16,12 @@
     <div id="eventArea" class="form">
       <input id="inputUrl" class="form__url" type="url" name="url" placeholder="ex. https://qr-generate.whyk.dev/" v-model="url">
       <input id="inputSize" class="form__size" type="number" name="size" placeholder="ex. 100" v-model="size">
+      <label class="label__bgcolor" for="inputBgColor">背景色<input id="inputBgColor" class="form__bgcolor" type="color" name="bgcolor" v-model="bgcolor"></label>
+      <label class="label__qrcolor" for="inputQrColor">本体色<input id="inputQrColor" class="form__qrcolor" type="color" name="qrcolor" v-model="qrcolor"></label>
     </div>
     <div class="drawArea">
       <p>ここにQRが表示されます</p>
-      <img class="drawArea__code" :src="`http://api.qrserver.com/v1/create-qr-code/?data=${url || 'https://qr-generate.whyk.dev/'}&size=${size || 100}x${size || 100}`" :alt="`${url}のQRコード`">
+      <img class="drawArea__code" :src="`http://api.qrserver.com/v1/create-qr-code/?data=${url || 'https://qr-generate.whyk.dev/'}&size=${size || 100}x${size || 100}&color=${qrcolor.replace(/#/, '')}&bgcolor=${bgcolor.replace(/#/, '')}`" :alt="`${url}のQRコード`">
     </div>
     <site-footer></site-footer>
   </div>
@@ -33,7 +36,9 @@ export default {
   data() {
     return {
       url: '',
-      size: null
+      size: null,
+      bgcolor: '#ffffff',
+      qrcolor: '#000000',
     }
   },
   components: {
@@ -110,6 +115,13 @@ export default {
     width: 80px;
     padding: 10px;
     border-bottom: 1px solid #000;
+  }
+  .label__bgcolor,
+  .label__qrcolor {
+    font-size: 1.5rem;
+  }
+  .label__bgcolor {
+    margin-right: 20px;
   }
   .drawArea {
     margin: 30px 0 10px;
