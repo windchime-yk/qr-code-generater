@@ -13,15 +13,22 @@
         <p class="usage__notice">※QRコードはモバイルでは表示上200pxで固定されていますが、サイズはちゃんと変更されています</p>
       </div>
     </details>
-    <div id="eventArea" class="form">
-      <input id="inputUrl" class="form__url" type="url" name="url" placeholder="ex. https://qr-generate.whyk.dev/" v-model="url">
-      <input id="inputSize" class="form__size" type="number" name="size" placeholder="ex. 100" v-model="size">
-      <label class="label__bgcolor" for="inputBgColor">背景色<input id="inputBgColor" class="form__bgcolor" type="color" name="bgcolor" v-model="bgcolor"></label>
-      <label class="label__qrcolor" for="inputQrColor">本体色<input id="inputQrColor" class="form__qrcolor" type="color" name="qrcolor" v-model="qrcolor"></label>
-    </div>
-    <div class="drawArea">
-      <p>ここにQRが表示されます</p>
-      <img class="drawArea__code" :src="`http://api.qrserver.com/v1/create-qr-code/?data=${url || 'https://qr-generate.whyk.dev/'}&size=${size || 100}x${size || 100}&color=${qrcolor.replace(/#/, '')}&bgcolor=${bgcolor.replace(/#/, '')}`" :alt="`${url}のQRコード`">
+    <div class="contentArea">
+      <div id="eventArea" class="form">
+        <span>URLを入力</span>
+        <el-input class="form__url" type="url" placeholder="qr-generate.whyk.dev" v-model="url">
+          <template slot="prepend">http(s)://</template>
+        </el-input>
+        <el-input-number class="form__size" v-model="size" :min="50" :max="1000" :step="5"></el-input-number>
+        <span class="label__bgcolor">背景色</span>
+        <el-color-picker v-model="bgcolor"></el-color-picker>
+        <span class="label__qrcolor">本体色</span>
+        <el-color-picker v-model="qrcolor"></el-color-picker>
+      </div>
+      <div class="drawArea">
+        <p>ここにQRが表示されます</p>
+        <img class="drawArea__code" :src="`http://api.qrserver.com/v1/create-qr-code/?data=${url || 'https://qr-generate.whyk.dev/'}&size=${size}x${size}&color=${qrcolor.replace(/#/, '')}&bgcolor=${bgcolor.replace(/#/, '')}`" :alt="`${url}のQRコード`">
+      </div>
     </div>
     <site-footer></site-footer>
   </div>
@@ -99,22 +106,22 @@ export default {
     text-indent: -1em;
     padding-left: 2em;
   }
-  .form {
-    /* text-align: center; */
+  .contentArea {
     display: flex;
-    justify-content: center;
+  }
+  .form,
+  .drawArea {
+    width: 50%;
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
   }
   .form__url {
-    width: 250px;
-    margin-right: 10px;
-    padding: 10px;
-    font-size: 1.5rem;
-    border-bottom: 1px solid #000;
+    margin-bottom: 10px;
   }
   .form__size {
-    width: 80px;
-    padding: 10px;
-    border-bottom: 1px solid #000;
+    margin-bottom: 10px;
   }
   .label__bgcolor,
   .label__qrcolor {
