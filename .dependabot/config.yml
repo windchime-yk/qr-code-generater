@@ -5,9 +5,9 @@ update_configs:
     update_schedule: "live"
     target_branch: "master"
     default_labels:
-    - "dependencies"
-    - "dependabot"
-    - "env"
+    - "Type: Maintenance"
+    - "Type: Security"
+    - "Type: Environment"
     allowed_updates:
     - match:
         update_type: "security"
