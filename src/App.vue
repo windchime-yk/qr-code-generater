@@ -13,15 +13,30 @@
         <p class="usage__notice">※QRコードはモバイルでは表示上200pxで固定されていますが、サイズはちゃんと変更されています</p>
       </div>
     </details>
-    <div id="eventArea" class="form">
-      <input id="inputUrl" class="form__url" type="url" name="url" placeholder="ex. https://qr-generate.whyk.dev/" v-model="url">
-      <input id="inputSize" class="form__size" type="number" name="size" placeholder="ex. 100" v-model="size">
-      <label class="label__bgcolor" for="inputBgColor">背景色<input id="inputBgColor" class="form__bgcolor" type="color" name="bgcolor" v-model="bgcolor"></label>
-      <label class="label__qrcolor" for="inputQrColor">本体色<input id="inputQrColor" class="form__qrcolor" type="color" name="qrcolor" v-model="qrcolor"></label>
-    </div>
-    <div class="drawArea">
-      <p>ここにQRが表示されます</p>
-      <img class="drawArea__code" :src="`http://api.qrserver.com/v1/create-qr-code/?data=${url || 'https://qr-generate.whyk.dev/'}&size=${size || 100}x${size || 100}&color=${qrcolor.replace(/#/, '')}&bgcolor=${bgcolor.replace(/#/, '')}`" :alt="`${url}のQRコード`">
+    <div class="contentArea">
+      <div id="eventArea" class="form">
+        <el-input class="form__url" type="url" placeholder="qr-generate.whyk.dev" v-model="url">
+          <template slot="prepend">http(s)://</template>
+        </el-input>
+        <el-input-number class="form__size" v-model="size" :min="50" :max="1000" :step="5"/>
+        <el-select class="form__extension" v-model="extension" clearable placeholder="jpg">
+          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
+        </el-select>
+        <div class="color">
+          <div class="bgcolor">
+            <span class="bgcolor__label">背景色</span>
+            <el-color-picker v-model="bgcolor"/>
+          </div>
+          <div class="qrcolor">
+            <span class="qrcolor__label">本体色</span>
+            <el-color-picker v-model="qrcolor"/>
+          </div>
+        </div>
+      </div>
+      <div class="drawArea">
+        <p>ここにQRが表示されます</p>
+        <img class="drawArea__code" :src="`http://api.qrserver.com/v1/create-qr-code/?data=${url || 'https://qr-generate.whyk.dev/'}&size=${size}x${size}&format=${extension || 'jpg'}&color=${qrcolor.replace(/#/, '')}&bgcolor=${bgcolor.replace(/#/, '')}`" :alt="`${url}のQRコード`">
+      </div>
     </div>
     <site-footer></site-footer>
   </div>
@@ -39,6 +54,25 @@ export default {
       size: null,
       bgcolor: '#ffffff',
       qrcolor: '#000000',
+      extension: '',
+      options: [
+        {
+          value: 'jpg',
+          label: 'jpg'
+        },
+        {
+          value: 'png',
+          label: 'png'
+        },
+        {
+          value: 'gif',
+          label: 'gif'
+        },
+        {
+          value: 'svg',
+          label: 'svg'
+        }
+      ]
     }
   },
   components: {
@@ -99,31 +133,42 @@ export default {
     text-indent: -1em;
     padding-left: 2em;
   }
-  .form {
-    /* text-align: center; */
+  .contentArea {
     display: flex;
-    justify-content: center;
+  }
+  .form {
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px dashed #000;
+    padding-right: 2%;
   }
   .form__url {
-    width: 250px;
-    margin-right: 10px;
-    padding: 10px;
-    font-size: 1.5rem;
-    border-bottom: 1px solid #000;
+    margin-bottom: 10px;
   }
   .form__size {
-    width: 80px;
-    padding: 10px;
-    border-bottom: 1px solid #000;
+    margin-bottom: 10px;
   }
-  .label__bgcolor,
-  .label__qrcolor {
-    font-size: 1.5rem;
+  .form__extension {
+    margin-bottom: 10px;
   }
-  .label__bgcolor {
+  .color {
+    display: flex;
+  }
+  .bgcolor,
+  .qrcolor {
+    display: flex;
+    flex-direction: column;
+  }
+  .bgcolor {
     margin-right: 20px;
   }
+  .bgcolor__label,
+  .qrcolor__label {
+    font-size: 1.3rem;
+  }
   .drawArea {
+    width: 50%;
     margin: 30px 0 10px;
     text-align: center;
     font-size: 1.3rem;
@@ -137,10 +182,19 @@ export default {
     text-align: center;
   }
 
-  @media screen and (max-width: 425px) {
+  @media screen and (max-width: 768px) {
+    .contentArea {
+      flex-direction: column;
+    }
+    .form {
+      width: 80%;
+      border-right: none;
+    }
+    .drawArea {
+      width: 100%;
+    }
     .usage {
       width: 80%;
-      /* padding: 10px; */
     }
     .form {
       flex-direction: column;
