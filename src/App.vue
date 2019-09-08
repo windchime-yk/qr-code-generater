@@ -18,11 +18,17 @@
         <el-input class="form__url" type="url" placeholder="qr-generate.whyk.dev" v-model="url">
           <template slot="prepend">http(s)://</template>
         </el-input>
-        <el-input-number class="form__size" v-model="size" :min="50" :max="1000" :step="5"></el-input-number>
-        <span class="label__bgcolor">背景色</span>
-        <el-color-picker v-model="bgcolor"></el-color-picker>
-        <span class="label__qrcolor">本体色</span>
-        <el-color-picker v-model="qrcolor"></el-color-picker>
+        <el-input-number class="form__size" v-model="size" :min="50" :max="1000" :step="5"/>
+        <div class="color">
+          <div class="bgcolor">
+            <span class="bgcolor__label">背景色</span>
+            <el-color-picker v-model="bgcolor"/>
+          </div>
+          <div class="qrcolor">
+            <span class="qrcolor__label">本体色</span>
+            <el-color-picker v-model="qrcolor"/>
+          </div>
+        </div>
       </div>
       <div class="drawArea">
         <p>ここにQRが表示されます</p>
@@ -108,13 +114,12 @@ export default {
   .contentArea {
     display: flex;
   }
-  .form,
-  .drawArea {
-    width: 50%;
-  }
   .form {
+    width: 48%;
     display: flex;
     flex-direction: column;
+    border-right: 1px dashed #000;
+    padding-right: 2%;
   }
   .form__url {
     margin-bottom: 10px;
@@ -122,14 +127,23 @@ export default {
   .form__size {
     margin-bottom: 10px;
   }
-  .label__bgcolor,
-  .label__qrcolor {
-    font-size: 1.5rem;
+  .color {
+    display: flex;
   }
-  .label__bgcolor {
+  .bgcolor,
+  .qrcolor {
+    display: flex;
+    flex-direction: column;
+  }
+  .bgcolor {
     margin-right: 20px;
   }
+  .bgcolor__label,
+  .qrcolor__label {
+    font-size: 1.3rem;
+  }
   .drawArea {
+    width: 50%;
     margin: 30px 0 10px;
     text-align: center;
     font-size: 1.3rem;
@@ -143,10 +157,19 @@ export default {
     text-align: center;
   }
 
-  @media screen and (max-width: 425px) {
+  @media screen and (max-width: 768px) {
+    .contentArea {
+      flex-direction: column;
+    }
+    .form {
+      width: 80%;
+      border-right: none;
+    }
+    .drawArea {
+      width: 100%;
+    }
     .usage {
       width: 80%;
-      /* padding: 10px; */
     }
     .form {
       flex-direction: column;
