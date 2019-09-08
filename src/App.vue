@@ -15,7 +15,6 @@
     </details>
     <div class="contentArea">
       <div id="eventArea" class="form">
-        <span>URLを入力</span>
         <el-input class="form__url" type="url" placeholder="qr-generate.whyk.dev" v-model="url">
           <template slot="prepend">http(s)://</template>
         </el-input>
