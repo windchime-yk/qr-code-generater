@@ -19,6 +19,9 @@
           <template slot="prepend">http(s)://</template>
         </el-input>
         <el-input-number class="form__size" v-model="size" :min="50" :max="1000" :step="5"/>
+        <el-select class="form__extension" v-model="extension" clearable placeholder="jpg">
+          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
+        </el-select>
         <div class="color">
           <div class="bgcolor">
             <span class="bgcolor__label">背景色</span>
@@ -32,7 +35,7 @@
       </div>
       <div class="drawArea">
         <p>ここにQRが表示されます</p>
-        <img class="drawArea__code" :src="`http://api.qrserver.com/v1/create-qr-code/?data=${url || 'https://qr-generate.whyk.dev/'}&size=${size}x${size}&color=${qrcolor.replace(/#/, '')}&bgcolor=${bgcolor.replace(/#/, '')}`" :alt="`${url}のQRコード`">
+        <img class="drawArea__code" :src="`http://api.qrserver.com/v1/create-qr-code/?data=${url || 'https://qr-generate.whyk.dev/'}&size=${size}x${size}&format=${extension || 'jpg'}&color=${qrcolor.replace(/#/, '')}&bgcolor=${bgcolor.replace(/#/, '')}`" :alt="`${url}のQRコード`">
       </div>
     </div>
     <site-footer></site-footer>
@@ -51,6 +54,25 @@ export default {
       size: null,
       bgcolor: '#ffffff',
       qrcolor: '#000000',
+      extension: '',
+      options: [
+        {
+          value: 'jpg',
+          label: 'jpg'
+        },
+        {
+          value: 'png',
+          label: 'png'
+        },
+        {
+          value: 'gif',
+          label: 'gif'
+        },
+        {
+          value: 'svg',
+          label: 'svg'
+        }
+      ]
     }
   },
   components: {
@@ -125,6 +147,9 @@ export default {
     margin-bottom: 10px;
   }
   .form__size {
+    margin-bottom: 10px;
+  }
+  .form__extension {
     margin-bottom: 10px;
   }
   .color {
