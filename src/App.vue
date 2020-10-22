@@ -18,7 +18,7 @@
         <el-input class="form__url" type="url" placeholder="qr-generate.whyk.dev" v-model="url">
           <template slot="prepend">http(s)://</template>
         </el-input>
-        <el-input-number class="form__size" v-model="size" :min="50" :max="1000" :step="5"/>
+        <el-slider class="form__size" v-model="size" :min="50" :max="1000" :step="5" show-input/>
         <el-select class="form__extension" v-model="extension" clearable placeholder="jpg">
           <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
         </el-select>
