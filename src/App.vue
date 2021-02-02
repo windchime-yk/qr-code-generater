@@ -13,47 +13,52 @@
         <p class="usage__notice">※QRコードはモバイルでは表示上200pxで固定されていますが、サイズはちゃんと変更されています</p>
       </div>
     </details>
-    <div class="contentArea">
+    <div class="content-area">
       <div id="eventArea" class="form">
-        <el-input class="form__url" type="url" placeholder="qr-generate.whyk.dev" v-model="url">
-          <template slot="prepend">http(s)://</template>
+        <el-input class="form__url" type="url" placeholder="qr-generate.whyk.dev" v-model="state.url">
+          <template #prepend>http(s)://</template>
         </el-input>
-        <el-slider class="form__size" v-model="size" :min="50" :max="1000" :step="5" show-input/>
-        <el-select class="form__extension" v-model="extension" clearable placeholder="jpg">
-          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
+        <el-slider class="form__size" v-model="state.size" :min="50" :max="1000" :step="5" show-input/>
+        <el-select class="form__extension" v-model="state.extension" clearable placeholder="svg">
+          <el-option v-for="item in state.options" :key="item.value" :label="item.label" :value="item.value" />
         </el-select>
         <div class="color">
           <div class="bgcolor">
             <span class="bgcolor__label">背景色</span>
-            <el-color-picker v-model="bgcolor"/>
+            <el-color-picker v-model="state.bgcolor"/>
           </div>
           <div class="qrcolor">
             <span class="qrcolor__label">本体色</span>
-            <el-color-picker v-model="qrcolor"/>
+            <el-color-picker v-model="state.qrcolor"/>
           </div>
         </div>
       </div>
-      <div class="drawArea">
+      <div class="draw-area">
         <p>ここにQRが表示されます</p>
-        <img class="drawArea__code" :src="`http://api.qrserver.com/v1/create-qr-code/?data=${url || 'https://qr-generate.whyk.dev/'}&size=${size}x${size}&format=${extension || 'jpg'}&color=${qrcolor.replace(/#/, '')}&bgcolor=${bgcolor.replace(/#/, '')}`" :alt="`${url}のQRコード`">
+        <img class="draw-area__code" :src="`http://api.qrserver.com/v1/create-qr-code/?data=${state.url || 'https://qr-generate.whyk.dev/'}&size=${state.size}x${state.size}&format=${state.extension || 'svg'}&color=${state.qrcolor.replace(/#/, '')}&bgcolor=${state.bgcolor.replace(/#/, '')}`" :alt="`${state.url}のQRコード`">
       </div>
     </div>
     <site-footer></site-footer>
   </div>
 </template>
 
-<script>
-import SiteHeader from './components/SiteHeader';
-import SiteFooter from './components/SiteFooter';
+<script lang="ts">
+import { defineComponent, onMounted, reactive } from 'vue'
+import SiteHeader from './components/SiteHeader.vue';
+import SiteFooter from './components/SiteFooter.vue';
 
-export default {
-  name: 'app',
-  data() {
-    return {
+export default defineComponent({
+  name: 'App',
+  components: {
+    SiteHeader,
+    SiteFooter
+  },
+  setup() {
+    const state = reactive({
       url: '',
       size: null,
-      bgcolor: '#ffffff',
-      qrcolor: '#000000',
+      bgcolor: '#fff',
+      qrcolor: '#000',
       extension: '',
       options: [
         {
@@ -73,35 +78,16 @@ export default {
           label: 'svg'
         }
       ]
+    })
+
+    return {
+      state
     }
-  },
-  components: {
-    SiteHeader,
-    SiteFooter
   }
-}
+})
 </script>
 
-<style>
-  html {
-    font-size: 62.5%;
-    font-family: 'Noto Sans Japanese';
-    font-weight: 200;
-  }
-  body {
-    max-width: 950px;
-    width: 100%;
-    margin: 0 auto;
-  }
-  button,
-  input {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    outline: none;
-    padding: 0;
-    appearance: none;
-  }
+<style lang="scss" scoped>
   .main {
     display: flex;
     flex-direction: column;
@@ -133,7 +119,7 @@ export default {
     text-indent: -1em;
     padding-left: 2em;
   }
-  .contentArea {
+  .content-area {
     display: flex;
   }
   .form {
@@ -167,30 +153,23 @@ export default {
   .qrcolor__label {
     font-size: 1.3rem;
   }
-  .drawArea {
+  .draw-area {
     width: 50%;
     margin: 30px 0 10px;
     text-align: center;
     font-size: 1.3rem;
     font-weight: 500;
   }
-  .footer {
-    margin-top: 100px;
-  }
-  .copyright {
-    display: block;
-    text-align: center;
-  }
 
   @media screen and (max-width: 768px) {
-    .contentArea {
+    .content-area {
       flex-direction: column;
     }
     .form {
       width: 80%;
       border-right: none;
     }
-    .drawArea {
+    .draw-area {
       width: 100%;
     }
     .usage {
@@ -201,7 +180,7 @@ export default {
       margin-right: 10%;
       margin-left: 10%;
     }
-    .drawArea__code {
+    .draw-area__code {
       max-width: 200px;
       width: 100%;
     }
