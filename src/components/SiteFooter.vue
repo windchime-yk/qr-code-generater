@@ -9,3 +9,12 @@ export default {
   name: 'SiteFooter'
 }
 </script>
+
+<style lang="scss" scoped>
+.footer {
+  margin-top: 100px;
+}
+.copyright {
+  font-size: 1.4rem;
+}
+</style>
