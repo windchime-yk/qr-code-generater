@@ -15,8 +15,7 @@
     </details>
     <div class="content-area">
       <div id="eventArea" class="form">
-        <el-input class="form__url" type="url" placeholder="qr-generate.whyk.dev" v-model="state.url">
-          <template #prepend>http(s)://</template>
+        <el-input class="form__url" type="url" placeholder="https://qr-generate.whyk.dev" v-model="state.url">
         </el-input>
         <el-slider class="form__size" v-model="state.size" :min="50" :max="1000" :step="5" show-input/>
         <el-select class="form__extension" v-model="state.extension" clearable placeholder="svg">
@@ -56,7 +55,7 @@ export default defineComponent({
   setup() {
     const state = reactive({
       url: '',
-      size: null,
+      size: 100,
       bgcolor: '#fff',
       qrcolor: '#000',
       extension: '',
