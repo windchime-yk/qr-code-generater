@@ -34,7 +34,7 @@
       </div>
       <div class="draw-area">
         <p>ここにQRが表示されます</p>
-        <img class="draw-area__code" :src="`http://api.qrserver.com/v1/create-qr-code/?data=${state.url || 'https://qr-generate.whyk.dev/'}&size=${state.size}x${state.size}&format=${state.extension || 'svg'}&color=${state.qrcolor.replace(/#/, '')}&bgcolor=${state.bgcolor.replace(/#/, '')}`" :alt="`${state.url}のQRコード`">
+        <img class="draw-area__code" :src="`https://qr.whyk.dev/api?url=${state.url || 'https://qr-generate.whyk.dev/'}&width=${state.size}&type=${state.extension || 'svg'}&qrcolor=${state.qrcolor.replace(/#/, '')}&bgcolor=${state.bgcolor.replace(/#/, '')}`" :alt="`${state.url}のQRコード`">
       </div>
     </div>
     <site-footer></site-footer>
@@ -42,7 +42,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, reactive } from 'vue'
+import { defineComponent, reactive } from 'vue'
 import SiteHeader from './components/SiteHeader.vue';
 import SiteFooter from './components/SiteFooter.vue';
 
@@ -58,19 +58,11 @@ export default defineComponent({
       size: 100,
       bgcolor: '#fff',
       qrcolor: '#000',
-      extension: '',
+      extension: 'svg',
       options: [
-        {
-          value: 'jpg',
-          label: 'jpg'
-        },
         {
           value: 'png',
           label: 'png'
-        },
-        {
-          value: 'gif',
-          label: 'gif'
         },
         {
           value: 'svg',
