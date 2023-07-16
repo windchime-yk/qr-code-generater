@@ -15,7 +15,7 @@
   <NavBrand href="/"><span class="text-2xl font-bold">QR Code Generater</span></NavBrand>
   <DarkMode />
 </Navbar>
-<main class="w-[1000px] mx-auto">
+<main class="md:max-w-[1000px] w-full px-5 lg:px-0 md:mx-auto">
   <slot />
 </main>
 <Footer>

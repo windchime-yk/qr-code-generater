@@ -33,8 +33,8 @@
   >
 </div>
 
-<div class="flex gap-10 mt-10">
-  <form class="w-2/3 flex flex-col gap-5">
+<div class="md:flex gap-10 mt-10">
+  <form class="md:w-2/3 flex flex-col gap-5">
     <div>
       <Label>URL</Label>
       <Input type="url" placeholder="https://example.com" bind:value={url} />
@@ -62,7 +62,7 @@
     </div>
   </form>
 
-  <figure class="w-1/3">
+  <figure class="md:w-1/3 flex md:block justify-center mt-5">
     <img src={getQrImage(url, imageSize, selectedExtention, qrcolor, bgcolor)} alt="" />
   </figure>
 </div>
