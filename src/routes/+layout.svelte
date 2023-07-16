@@ -19,7 +19,7 @@
   <slot />
 </main>
 <Footer>
-  <FooterCopyright by="WhyK" year={2019} />
+  <FooterCopyright by="WhyK" year={new Date().getFullYear()} />
   <FooterLinkGroup
     ulClass="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0"
   >
