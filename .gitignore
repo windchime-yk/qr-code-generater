@@ -2,7 +2,6 @@
 node_modules
 /build
 /.svelte-kit
-/.netlify
 /dist
 /package
 .env
