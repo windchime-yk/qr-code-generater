@@ -15,8 +15,8 @@ dependencies:
     specifier: ^1.6.6
     version: 1.6.6
   flowbite-svelte:
-    specifier: ^0.41.0
-    version: 0.41.0(svelte@4.0.1)
+    specifier: ^0.43.0
+    version: 0.43.1(svelte@4.0.1)
 
 devDependencies:
   '@sveltejs/adapter-cloudflare':
@@ -1424,8 +1424,8 @@ packages:
     resolution: {integrity: sha512-5nqDSxl8nn5BSNxyR3n4I6eDmbolI6WT+QqR547RwxQapgjQBmtktdP+HTBb/a/zLsbzERTONyUB5pefh5TtjQ==}
     dev: true
 
-  /flowbite-svelte@0.41.0(svelte@4.0.1):
-    resolution: {integrity: sha512-LqgAObU+jBl6XGKQJwojYauIDwmbIulP9ohQoae4n/bUH9zbTn090EomdYLtfIqMrFlaYZe7IWwyS7s802ZC1g==}
+  /flowbite-svelte@0.43.1(svelte@4.0.1):
+    resolution: {integrity: sha512-01ofjsHi7YRNx/MvmjpULQ5L6ar8El7yqWD3aJJupyaXRvTyPb5CHPUP5fT1rOJA11oeZDnPRTdJ27aDuTXpZQ==}
     engines: {node: '>=16.0.0', npm: '>=7.0.0'}
     peerDependencies:
       svelte: ^3.55.1 || ^4.0.0
@@ -1433,7 +1433,7 @@ packages:
       '@floating-ui/dom': 1.5.1
       flowbite: 1.8.1
       svelte: 4.0.1
-      tailwind-merge: 1.13.2
+      tailwind-merge: 1.14.0
     dev: false
 
   /flowbite@1.6.6:
@@ -2338,8 +2338,8 @@ packages:
       magic-string: 0.30.0
       periscopic: 3.1.0
 
-  /tailwind-merge@1.13.2:
-    resolution: {integrity: sha512-R2/nULkdg1VR/EL4RXg4dEohdoxNUJGLMnWIQnPKL+O9Twu7Cn3Rxi4dlXkDzZrEGtR+G+psSXFouWlpTyLhCQ==}
+  /tailwind-merge@1.14.0:
+    resolution: {integrity: sha512-3mFKyCo/MBcgyOTlrY8T7odzZFx+w+qKSMAmdFzRvqBfLlSigU6TZnlFHK0lkMwj9Bj8OYU+9yW9lmGuS0QEnQ==}
     dev: false
 
   /tailwindcss@3.3.2:
