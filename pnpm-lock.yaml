@@ -16,7 +16,7 @@ dependencies:
     version: 1.8.1
   flowbite-svelte:
     specifier: ^0.44.0
-    version: 0.44.23(svelte@4.2.11)
+    version: 0.44.24(svelte@4.2.11)
 
 devDependencies:
   '@sveltejs/adapter-cloudflare':
@@ -1276,8 +1276,8 @@ packages:
     resolution: {integrity: sha512-X8cqMLLie7KsNUDSdzeN8FYK9rEt4Dt67OsG/DNGnYTSDBG4uFAJFBnUeiV+zCVAvwFy56IjM9sH51jVaEhNxw==}
     dev: true
 
-  /flowbite-svelte@0.44.23(svelte@4.2.11):
-    resolution: {integrity: sha512-F79/iRLLs5WHYX1CqFx5Maqookit1tLpN0VmHR91tcuFEcHY5BRyLXb7hVehwj16wvG7/N0Blchlz55HyqPjhQ==}
+  /flowbite-svelte@0.44.24(svelte@4.2.11):
+    resolution: {integrity: sha512-kXhJZHGpBVq5RFOoYnzRCEM8eFa81DVp4KjUbBsLJptKhizbSSBJuYApWIQb9pBCS8EBhX4PAX+RsgEDZfEqtA==}
     engines: {node: '>=18.0.0', pnpm: '>=8.0.0'}
     peerDependencies:
       svelte: ^4.0.0
