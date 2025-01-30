@@ -23,10 +23,10 @@ importers:
     devDependencies:
       '@sveltejs/adapter-cloudflare':
         specifier: ^2.3.2
-        version: 2.3.4(@sveltejs/kit@1.30.4(svelte@4.2.19)(vite@4.5.5))
+        version: 2.3.4(@sveltejs/kit@1.30.4(svelte@4.2.19)(vite@4.5.9))
       '@sveltejs/kit':
         specifier: ^1.20.4
-        version: 1.30.4(svelte@4.2.19)(vite@4.5.5)
+        version: 1.30.4(svelte@4.2.19)(vite@4.5.9)
       '@typescript-eslint/eslint-plugin':
         specifier: ^5.45.0
         version: 5.62.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@5.7.3))(eslint@8.57.1)(typescript@5.7.3)
@@ -74,7 +74,7 @@ importers:
         version: 5.7.3
       vite:
         specifier: ^4.3.6
-        version: 4.5.5
+        version: 4.5.9
 
 packages:
 
@@ -1536,8 +1536,8 @@ packages:
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
-  vite@4.5.5:
-    resolution: {integrity: sha512-ifW3Lb2sMdX+WU91s3R0FyQlAyLxOzCSCP37ujw0+r5POeHPwe6udWVIElKQq8gk3t7b8rkmvqC6IHBpCff4GQ==}
+  vite@4.5.9:
+    resolution: {integrity: sha512-qK9W4xjgD3gXbC0NmdNFFnVFLMWSNiR3swj957yutwzzN16xF/E7nmtAyp1rT9hviDroQANjE4HK3H4WqWdFtw==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -1813,16 +1813,16 @@ snapshots:
     optionalDependencies:
       rollup: 3.29.5
 
-  '@sveltejs/adapter-cloudflare@2.3.4(@sveltejs/kit@1.30.4(svelte@4.2.19)(vite@4.5.5))':
+  '@sveltejs/adapter-cloudflare@2.3.4(@sveltejs/kit@1.30.4(svelte@4.2.19)(vite@4.5.9))':
     dependencies:
       '@cloudflare/workers-types': 4.20240222.0
-      '@sveltejs/kit': 1.30.4(svelte@4.2.19)(vite@4.5.5)
+      '@sveltejs/kit': 1.30.4(svelte@4.2.19)(vite@4.5.9)
       esbuild: 0.18.20
       worktop: 0.8.0-next.15
 
-  '@sveltejs/kit@1.30.4(svelte@4.2.19)(vite@4.5.5)':
+  '@sveltejs/kit@1.30.4(svelte@4.2.19)(vite@4.5.9)':
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 2.5.3(svelte@4.2.19)(vite@4.5.5)
+      '@sveltejs/vite-plugin-svelte': 2.5.3(svelte@4.2.19)(vite@4.5.9)
       '@types/cookie': 0.5.4
       cookie: 0.5.0
       devalue: 4.3.2
@@ -1836,30 +1836,30 @@ snapshots:
       svelte: 4.2.19
       tiny-glob: 0.2.9
       undici: 5.28.3
-      vite: 4.5.5
+      vite: 4.5.9
     transitivePeerDependencies:
       - supports-color
 
-  '@sveltejs/vite-plugin-svelte-inspector@1.0.4(@sveltejs/vite-plugin-svelte@2.5.3(svelte@4.2.19)(vite@4.5.5))(svelte@4.2.19)(vite@4.5.5)':
+  '@sveltejs/vite-plugin-svelte-inspector@1.0.4(@sveltejs/vite-plugin-svelte@2.5.3(svelte@4.2.19)(vite@4.5.9))(svelte@4.2.19)(vite@4.5.9)':
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 2.5.3(svelte@4.2.19)(vite@4.5.5)
+      '@sveltejs/vite-plugin-svelte': 2.5.3(svelte@4.2.19)(vite@4.5.9)
       debug: 4.3.7
       svelte: 4.2.19
-      vite: 4.5.5
+      vite: 4.5.9
     transitivePeerDependencies:
       - supports-color
 
-  '@sveltejs/vite-plugin-svelte@2.5.3(svelte@4.2.19)(vite@4.5.5)':
+  '@sveltejs/vite-plugin-svelte@2.5.3(svelte@4.2.19)(vite@4.5.9)':
     dependencies:
-      '@sveltejs/vite-plugin-svelte-inspector': 1.0.4(@sveltejs/vite-plugin-svelte@2.5.3(svelte@4.2.19)(vite@4.5.5))(svelte@4.2.19)(vite@4.5.5)
+      '@sveltejs/vite-plugin-svelte-inspector': 1.0.4(@sveltejs/vite-plugin-svelte@2.5.3(svelte@4.2.19)(vite@4.5.9))(svelte@4.2.19)(vite@4.5.9)
       debug: 4.3.7
       deepmerge: 4.3.1
       kleur: 4.1.5
       magic-string: 0.30.7
       svelte: 4.2.19
       svelte-hmr: 0.15.3(svelte@4.2.19)
-      vite: 4.5.5
-      vitefu: 0.2.5(vite@4.5.5)
+      vite: 4.5.9
+      vitefu: 0.2.5(vite@4.5.9)
     transitivePeerDependencies:
       - supports-color
 
@@ -3028,7 +3028,7 @@ snapshots:
 
   util-deprecate@1.0.2: {}
 
-  vite@4.5.5:
+  vite@4.5.9:
     dependencies:
       esbuild: 0.18.20
       postcss: 8.5.1
@@ -3036,9 +3036,9 @@ snapshots:
     optionalDependencies:
       fsevents: 2.3.3
 
-  vitefu@0.2.5(vite@4.5.5):
+  vitefu@0.2.5(vite@4.5.9):
     optionalDependencies:
-      vite: 4.5.5
+      vite: 4.5.9
 
   which@2.0.2:
     dependencies:
