@@ -23,10 +23,10 @@ importers:
     devDependencies:
       '@sveltejs/adapter-cloudflare':
         specifier: ^2.3.2
-        version: 2.3.4(@sveltejs/kit@1.30.4(svelte@4.2.19)(vite@4.5.10))
+        version: 2.3.4(@sveltejs/kit@1.30.4(svelte@4.2.19)(vite@4.5.12))
       '@sveltejs/kit':
         specifier: ^1.20.4
-        version: 1.30.4(svelte@4.2.19)(vite@4.5.10)
+        version: 1.30.4(svelte@4.2.19)(vite@4.5.12)
       '@typescript-eslint/eslint-plugin':
         specifier: ^5.45.0
         version: 5.62.0(@typescript-eslint/parser@5.62.0(eslint@8.57.1)(typescript@5.8.2))(eslint@8.57.1)(typescript@5.8.2)
@@ -74,7 +74,7 @@ importers:
         version: 5.8.2
       vite:
         specifier: ^4.3.6
-        version: 4.5.10
+        version: 4.5.12
 
 packages:
 
@@ -1539,8 +1539,8 @@ packages:
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
-  vite@4.5.10:
-    resolution: {integrity: sha512-f2ueoukYTMI/5kMMT7wW+ol3zL6z6PjN28zYrGKAjnbzXhRXWXPThD3uN6muCp+TbfXaDgGvRuPsg6mwVLaWwQ==}
+  vite@4.5.12:
+    resolution: {integrity: sha512-qrMwavANtSz91nDy3zEiUHMtL09x0mniQsSMvDkNxuCBM1W5vriJ22hEmwTth6DhLSWsZnHBT0yHFAQXt6efGA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -1816,16 +1816,16 @@ snapshots:
     optionalDependencies:
       rollup: 3.29.5
 
-  '@sveltejs/adapter-cloudflare@2.3.4(@sveltejs/kit@1.30.4(svelte@4.2.19)(vite@4.5.10))':
+  '@sveltejs/adapter-cloudflare@2.3.4(@sveltejs/kit@1.30.4(svelte@4.2.19)(vite@4.5.12))':
     dependencies:
       '@cloudflare/workers-types': 4.20240222.0
-      '@sveltejs/kit': 1.30.4(svelte@4.2.19)(vite@4.5.10)
+      '@sveltejs/kit': 1.30.4(svelte@4.2.19)(vite@4.5.12)
       esbuild: 0.18.20
       worktop: 0.8.0-next.15
 
-  '@sveltejs/kit@1.30.4(svelte@4.2.19)(vite@4.5.10)':
+  '@sveltejs/kit@1.30.4(svelte@4.2.19)(vite@4.5.12)':
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 2.5.3(svelte@4.2.19)(vite@4.5.10)
+      '@sveltejs/vite-plugin-svelte': 2.5.3(svelte@4.2.19)(vite@4.5.12)
       '@types/cookie': 0.5.4
       cookie: 0.5.0
       devalue: 4.3.2
@@ -1839,30 +1839,30 @@ snapshots:
       svelte: 4.2.19
       tiny-glob: 0.2.9
       undici: 5.28.3
-      vite: 4.5.10
+      vite: 4.5.12
     transitivePeerDependencies:
       - supports-color
 
-  '@sveltejs/vite-plugin-svelte-inspector@1.0.4(@sveltejs/vite-plugin-svelte@2.5.3(svelte@4.2.19)(vite@4.5.10))(svelte@4.2.19)(vite@4.5.10)':
+  '@sveltejs/vite-plugin-svelte-inspector@1.0.4(@sveltejs/vite-plugin-svelte@2.5.3(svelte@4.2.19)(vite@4.5.12))(svelte@4.2.19)(vite@4.5.12)':
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 2.5.3(svelte@4.2.19)(vite@4.5.10)
+      '@sveltejs/vite-plugin-svelte': 2.5.3(svelte@4.2.19)(vite@4.5.12)
       debug: 4.3.7
       svelte: 4.2.19
-      vite: 4.5.10
+      vite: 4.5.12
     transitivePeerDependencies:
       - supports-color
 
-  '@sveltejs/vite-plugin-svelte@2.5.3(svelte@4.2.19)(vite@4.5.10)':
+  '@sveltejs/vite-plugin-svelte@2.5.3(svelte@4.2.19)(vite@4.5.12)':
     dependencies:
-      '@sveltejs/vite-plugin-svelte-inspector': 1.0.4(@sveltejs/vite-plugin-svelte@2.5.3(svelte@4.2.19)(vite@4.5.10))(svelte@4.2.19)(vite@4.5.10)
+      '@sveltejs/vite-plugin-svelte-inspector': 1.0.4(@sveltejs/vite-plugin-svelte@2.5.3(svelte@4.2.19)(vite@4.5.12))(svelte@4.2.19)(vite@4.5.12)
       debug: 4.3.7
       deepmerge: 4.3.1
       kleur: 4.1.5
       magic-string: 0.30.7
       svelte: 4.2.19
       svelte-hmr: 0.15.3(svelte@4.2.19)
-      vite: 4.5.10
-      vitefu: 0.2.5(vite@4.5.10)
+      vite: 4.5.12
+      vitefu: 0.2.5(vite@4.5.12)
     transitivePeerDependencies:
       - supports-color
 
@@ -3040,7 +3040,7 @@ snapshots:
 
   util-deprecate@1.0.2: {}
 
-  vite@4.5.10:
+  vite@4.5.12:
     dependencies:
       esbuild: 0.18.20
       postcss: 8.5.3
@@ -3048,9 +3048,9 @@ snapshots:
     optionalDependencies:
       fsevents: 2.3.3
 
-  vitefu@0.2.5(vite@4.5.10):
+  vitefu@0.2.5(vite@4.5.12):
     optionalDependencies:
-      vite: 4.5.10
+      vite: 4.5.12
 
   which@2.0.2:
     dependencies:
