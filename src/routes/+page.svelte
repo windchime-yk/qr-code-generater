@@ -8,19 +8,25 @@
     { value: 'svg', name: 'svg' }
   ];
 
+  const DEFAULT_QR_COLOR = '#000000';
+  const DEFAULT_BG_COLOR = '#ffffff';
+
   let url = $state('');
   let imageSize = $state(100);
   let selectedExtention = $state('svg');
-  let qrcolor = $state('#000000');
-  let bgcolor = $state('#ffffff');
+  let qrcolor = $state(DEFAULT_QR_COLOR);
+  let bgcolor = $state(DEFAULT_BG_COLOR);
 
+  // URLSearchParams に任せて各値をエスケープする。素の文字列連結だと
+  // 入力 URL に含まれる & や ? がクエリの区切りとして解釈されてしまう
   const qrImageUrl = $derived(
-    `https://qr.whyk.dev/api?url=${
-      url || 'https://example.com'
-    }&width=${imageSize}&type=${selectedExtention}&qrcolor=${qrcolor.replace(
-      '#',
-      ''
-    )}&bgcolor=${bgcolor.replace('#', '')}`
+    `https://qr.whyk.dev/api?${new URLSearchParams({
+      url: url || 'https://example.com',
+      width: String(imageSize),
+      type: selectedExtention,
+      qrcolor: qrcolor.replace('#', ''),
+      bgcolor: bgcolor.replace('#', '')
+    })}`
   );
 </script>
 
@@ -69,11 +75,26 @@
     <div class="flex gap-5">
       <div class="w-1/2">
         <label for="qrcolor" class={labelClass}>QRコード色</label>
-        <input id="qrcolor" type="color" bind:value={qrcolor} class="{fieldClass} h-10" />
+        <!-- defaultValue を付けると Svelte がハイドレーション時の
+             remove_input_defaults を省くため、色入力で value 属性が一瞬
+             空になり出るコンソール警告を防げる -->
+        <input
+          id="qrcolor"
+          type="color"
+          bind:value={qrcolor}
+          defaultValue={DEFAULT_QR_COLOR}
+          class="{fieldClass} h-10"
+        />
       </div>
       <div class="w-1/2">
         <label for="bgcolor" class={labelClass}>QRコード背景色</label>
-        <input id="bgcolor" type="color" bind:value={bgcolor} class="{fieldClass} h-10" />
+        <input
+          id="bgcolor"
+          type="color"
+          bind:value={bgcolor}
+          defaultValue={DEFAULT_BG_COLOR}
+          class="{fieldClass} h-10"
+        />
       </div>
     </div>
   </form>
