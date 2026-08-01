@@ -1,12 +1,12 @@
 <script>
   import {
+    DarkMode, 
     Footer,
     FooterCopyright,
-    FooterLinkGroup,
     FooterLink,
-    Navbar,
+    FooterLinkGroup,
     NavBrand,
-    DarkMode
+    Navbar
   } from 'flowbite-svelte';
   import '../app.postcss';
 </script>

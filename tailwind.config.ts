@@ -1,4 +1,4 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from 'tailwindcss';
 
 export default {
   content: [
@@ -6,8 +6,7 @@ export default {
     './node_modules/flowbite-svelte/**/*.{html,js,svelte,ts}'
   ],
   theme: {
-    extend: {},
+    extend: {}
   },
-  plugins: [require('flowbite/plugin')],
-} satisfies Config
-
+  plugins: [require('flowbite/plugin')]
+} satisfies Config;

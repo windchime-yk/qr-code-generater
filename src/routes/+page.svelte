@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Input, Label, Range, Select, Span, P } from 'flowbite-svelte';
+  import { Input, Label, P, Range, Select, Span } from 'flowbite-svelte';
 
   let url = '';
   let imageSize = 100;
