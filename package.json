@@ -8,34 +8,23 @@
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-    "lint": "prettier --plugin-search-dir . --check . && eslint .",
-    "format": "prettier --plugin-search-dir . --write ."
+    "lint": "biome check .",
+    "format": "biome check --write ."
   },
   "devDependencies": {
-    "@sveltejs/adapter-cloudflare": "^2.3.2",
-    "@sveltejs/kit": "^1.20.4",
-    "@typescript-eslint/eslint-plugin": "^5.45.0",
-    "@typescript-eslint/parser": "^5.45.0",
-    "autoprefixer": "^10.4.14",
-    "eslint": "^8.28.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-svelte": "^2.30.0",
-    "postcss": "^8.4.24",
-    "postcss-load-config": "^4.0.1",
-    "prettier": "^2.8.0",
-    "prettier-plugin-svelte": "^2.10.1",
-    "svelte": "^4.0.0",
-    "svelte-check": "^3.4.3",
-    "tailwindcss": "^3.3.2",
-    "tslib": "^2.4.1",
-    "typescript": "^5.0.0",
-    "vite": "^4.3.6"
+    "@biomejs/biome": "^2.5.6",
+    "@sveltejs/adapter-cloudflare": "^7.2.9",
+    "@sveltejs/kit": "^2.70.2",
+    "@tailwindcss/vite": "^4.3.3",
+    "svelte": "^5.56.8",
+    "svelte-check": "^4.7.4",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^6.0.3",
+    "vite": "^8.2.0"
   },
   "type": "module",
-  "dependencies": {
-    "@popperjs/core": "^2.11.8",
-    "classnames": "^2.3.2",
-    "flowbite": "^1.6.6",
-    "flowbite-svelte": "^0.48.0"
-  }
+  "volta": {
+    "node": "24.18.1"
+  },
+  "packageManager": "pnpm@11.18.0+sha512.33d83c77da82f49fba836925c6f1b841181ec3132b670639bd012f7075f5c7cf634c5f870147c19aae7478fac01df09d8892e880454896edd23ee9b33757563c"
 }

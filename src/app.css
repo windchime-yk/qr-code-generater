@@ -1,0 +1,5 @@
+@import 'tailwindcss';
+
+/* Tailwind 4 の dark: は既定で prefers-color-scheme を見るため、
+   トグルで切り替えられるよう class ベースに上書きする */
+@custom-variant dark (&:where(.dark, .dark *));
