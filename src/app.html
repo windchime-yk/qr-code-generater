@@ -18,6 +18,17 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&subset=japanese&display=swap"
     />
+    <script>
+      // ハイドレーション前に .dark を確定させ、ダークモード時のちらつきを防ぐ
+      try {
+        const theme = localStorage.getItem('theme');
+        if (theme === 'dark' || (!theme && matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      } catch {
+        // localStorage が使えない環境ではライトモードにフォールバックする
+      }
+    </script>
     %sveltekit.head%
   </head>
   <body class="bg-white dark:bg-gray-800" data-sveltekit-preload-data="hover">

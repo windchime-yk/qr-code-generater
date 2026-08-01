@@ -22,6 +22,14 @@
       "semicolons": "always"
     }
   },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
+    },
+    "formatter": {
+      "quoteStyle": "single"
+    }
+  },
   "html": {
     "experimentalFullSupportEnabled": true,
     "formatter": {
