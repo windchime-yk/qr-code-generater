@@ -1,0 +1,16 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "qr-code-generater",
+  // adapter-cloudflare は wrangler 設定に main と assets があると
+  // Pages 向け出力ではなく Workers Static Assets 向け出力に切り替わる
+  "main": ".svelte-kit/cloudflare/_worker.js",
+  "compatibility_date": "2026-08-02",
+  "compatibility_flags": ["nodejs_als"],
+  "assets": {
+    "binding": "ASSETS",
+    "directory": ".svelte-kit/cloudflare"
+  },
+  "observability": {
+    "enabled": true
+  }
+}
